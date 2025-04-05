@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring Our Solar System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.7);
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #4fc3f7;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            background: rgba(25, 118, 210, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            background: Violet;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .intro {
+            background: rgba(13, 71, 161, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #4fc3f7;
+        }
+
+        .intro h2 {
+            color: #4fc3f7;
+            margin-bottom: 15px;
+        }
+
+        .planets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .planet-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .planet-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .planet-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #4fc3f7;
+        }
+
+        .planet-name {
+            margin: 15px 0;
+            color: #4fc3f7;
+            font-size: 1.5rem;
+        }
+
+        .planet-desc {
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Exploring Our Solar System</h1>
+            <p>Journey through the wonders of our cosmic neighborhood</p>
+        </header>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="mercury.html" class="nav-btn">Mercury</a>
+            <a href="venus.html" class="nav-btn">Venus</a>
+            <a href="earth.html" class="nav-btn">Earth</a>
+            <a href="jupiter.html" class="nav-btn">Jupiter</a>
+            <a href="saturn.html" class="nav-btn">Saturn</a>
+            <a href="about.html" class="nav-btn">About</a>
+        </div>
+
+        <section class="intro">
+            <h2>Welcome to Our Solar System</h2>
+            <p>Our solar system consists of the Sun and everything that orbits around it - planets, moons, asteroids, comets, and meteoroids. The four inner planets (Mercury, Venus, Earth, and Mars) are called terrestrial planets because they have solid, rocky surfaces. The four outer planets (Jupiter, Saturn, Uranus, and Neptune) are gas giants, composed mainly of hydrogen and helium with dense atmospheres.</p>
+            <p>Explore each planet by clicking on the buttons above or browse the featured planets below to learn more about these fascinating worlds.</p>
+        </section>
+
+        <div class="planets-grid">
+            <div class="planet-card">
+                <img src="https://imgs.search.brave.com/SKl7qeSFXg_UmrTAoCkJmWlOTPBXytAjJi7QNou4aIM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bmhtLmFjLnVrL2Nv/bnRlbnQvZGFtL25o/bS13d3cvZGlzY292/ZXIvbWVyY3VyeS1m/YWN0cy9tZXJjdXJ5/LWZhY3RmaWxlLXYy/LWZ1bGwtd2lkdGgu/anBn" alt="Mercury" class="planet-img">
+                <h3 class="planet-name">Mercury</h3>
+                <p class="planet-desc">The smallest planet in our solar system and closest to the Sun, Mercury is only slightly larger than Earth's Moon.</p>
+            </div>
+
+            <div class="planet-card">
+                <img src="https://imgs.search.brave.com/pBq1i4y8vV3kTEdn6qacA-qvDEdHXkMStR1fRlQl1Xw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by92ZW51cy1wbGFu/ZXQtY2xvc2V1cC1z/cGFjZS1zYXRlbGxp/dGUtaW1hZ2UtdmVu/dXMtZWxlbWVudHMt/dGhpcy1pbWFnZS1m/dXJuaXNoZWQtYnkt/bmFzYV83MjAwOTUt/MTExNS5qcGc_c2Vt/dD1haXNfaHlicmlk" alt="Venus" class="planet-img">
+                <h3 class="planet-name">Venus</h3>
+                <p class="planet-desc">Similar in size to Earth, Venus spins slowly in the opposite direction from most planets with a thick, toxic atmosphere.</p>
+            </div>
+
+            <div class="planet-card">
+                <img src="https://imgs.search.brave.com/ZVurXna6IYdAGrVKCs0sVuntVFu4rHTw2ZlpGKTAQCs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by8z/ZC1yZW5kZXJpbmct/cGxhbmV0LWVhcnRo/XzIzLTIxNTA0OTg0/MzYuanBnP3NlbXQ9/YWlzX2h5YnJpZA" alt="Earth" class="planet-img">
+                <h3 class="planet-name">Earth</h3>
+                <p class="planet-desc">Our home planet is the only place we know of so far that's inhabited by living things with liquid water on the surface.</p>
+            </div>
+
+            <div class="planet-card">
+                <img src="https://imgs.search.brave.com/GqdU1vb_h4cyu7i1pgaGgJBIkEk0I2IPIWCfJw3m_q8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvOTE3/ODA2NTQ2L3Bob3Rv/L3BsYW5ldC1qdXBp/dGVyLWluLWZyb250/LW9mLXRoZS1nYWxh/eHktYW5kLXRoZS1z/dW4uanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPUo0bVQyWHlz/WXNkS1RZakdhU1ha/SWN6aHM4TG85LTNo/VWxwaVlVY0VEZ0E9" alt="Jupiter" class="planet-img">
+                <h3 class="planet-name">Jupiter</h3>
+                <p class="planet-desc">More than twice as massive as all other planets combined, Jupiter's Great Red Spot is a giant storm bigger than Earth.</p>
+            </div>
+
+            <div class="planet-card">
+                <img src="https://imgs.search.brave.com/KLB9VLIij031k2rMt_vDIIjTUk8GtOTyieKL2N-tLpA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTU1/MTUzMjA3L3Bob3Rv/L3NhdHVybi5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9NTZ2/ODJvMTYxeHhSMi0x/NEpVRkdjYm9UUjBa/aWRiVmtjZkNvY0Z6/MTIyRT0" alt="Saturn" class="planet-img">
+                <h3 class="planet-name">Saturn</h3>
+                <p class="planet-desc">Adorned with a dazzling system of icy rings, Saturn is unique among the planets with thousands of beautiful ringlets.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Solar System Explorer | All images courtesy of NASA</p>
+        </footer>
+    </div>
+</body>
+</html>

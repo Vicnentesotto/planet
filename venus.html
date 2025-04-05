@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venus - Earth's Fiery Twin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.7);
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255, 152, 0, 0.5);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #FF9800;
+            text-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #FFB74D;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            background: rgba(255, 152, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 152, 0, 1);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .planet-hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .planet-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .planet-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .quick-facts {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(38, 50, 56, 0.6);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #FF9800;
+        }
+
+        .quick-facts h2 {
+            color: #FF9800;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 152, 0, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .fact-item {
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        .fact-label {
+            font-weight: bold;
+            color: #FFB74D;
+            min-width: 120px;
+        }
+
+        .fact-value {
+            flex: 1;
+        }
+
+        .content-section {
+            background: rgba(38, 50, 56, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #FF9800;
+        }
+
+        .content-section h2 {
+            color: #FF9800;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .content-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            font-size: 0.9rem;
+            color: #FFB74D;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 152, 0, 0.3);
+        }
+
+        .comparison-table th {
+            color: #FF9800;
+            font-weight: bold;
+        }
+
+        .comparison-table tr:hover {
+            background-color: rgba(255, 152, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            border-top: 1px solid rgba(255, 152, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .planet-hero {
+                flex-direction: column;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Venus</h1>
+            <p class="subtitle">Earth's Fiery Twin</p>
+        </header>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="mercury.html" class="nav-btn">Mercury</a>
+            <a href="venus.html" class="nav-btn">Venus</a>
+            <a href="earth.html" class="nav-btn">Earth</a>
+            <a href="jupiter.html" class="nav-btn">Jupiter</a>
+            <a href="saturn.html" class="nav-btn">Saturn</a>
+            <a href="about.html" class="nav-btn">About</a>
+        </div>
+
+        <section class="planet-hero">
+            <div class="planet-image">
+                <img src="https://imgs.search.brave.com/ocU25eVDOXmqr_EI44XJ2kDwpayEefnAup9zJHt6-yA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9oZWxp/b3MtaS5tYXNoYWJs/ZS5jb20vaW1hZ2Vy/eS9hcnRpY2xlcy8w/NmQ3aWxqSjhMb2wx/QkYyek5xMmlOZi9p/bWFnZXMtMi5maWxs/LnNpemVfMjAwMHgy/MDAwLnYxNjg3ODk1/NDE2LmpwZw" alt="Venus planet view">
+            </div>
+            <div class="quick-facts">
+                <h2>Quick Facts</h2>
+                <div class="fact-item">
+                    <div class="fact-label">Diameter:</div>
+                    <div class="fact-value">12,104 km (7,521 miles) - 95% of Earth's diameter</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Mass:</div>
+                    <div class="fact-value">4.87 × 10²⁴ kg (81.5% of Earth's mass)</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Orbit Period:</div>
+                    <div class="fact-value">225 Earth days</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Rotation Period:</div>
+                    <div class="fact-value">243 Earth days (retrograde rotation)</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Surface Temp:</div>
+                    <div class="fact-value">465°C (869°F) - hottest planet in solar system</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Atmosphere:</div>
+                    <div class="fact-value">96.5% CO₂, 3.5% N₂, with clouds of sulfuric acid</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Surface Pressure:</div>
+                    <div class="fact-value">92 times Earth's (equivalent to 900m underwater)</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>About Venus</h2>
+            <p>Venus is the second planet from the Sun and Earth's closest planetary neighbor. Named after the Roman goddess of love and beauty, Venus is the only planet named after a female figure. Despite being called Earth's twin due to their similar size and composition, Venus is a hellish world with extreme temperatures, crushing atmospheric pressure, and toxic clouds.</p>
+            
+            <img src="https://imgs.search.brave.com/_5iHhV6pMwwOB0sFRjw1-D3j0qtBnqQWZVMg4xfl0_0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc2NpZW5jZS5u/YXNhLmdvdi9keW5h/bWljaW1hZ2UvYXNz/ZXRzL3NjaWVuY2Uv/cHNkL3Bob3Rvam91/cm5hbC9waWEvcGlh/MDAvcGlhMDAyNjgv/UElBMDAyNjguanBn/P3c9MTAyNA" alt="Venus surface from Venera probe">
+            
+            <p>Venus rotates in the opposite direction to most planets (retrograde rotation) and has the slowest rotation period of any major planet. A day on Venus (one full rotation) actually lasts longer than a year on Venus (one orbit around the Sun). The planet's thick atmosphere traps heat in a runaway greenhouse effect, making it hotter than Mercury despite being nearly twice as far from the Sun.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Extreme Atmosphere</h2>
+            <p>Venus has the densest atmosphere of the four terrestrial planets, consisting mostly of carbon dioxide with thick clouds of sulfuric acid. The atmospheric pressure at the surface is 92 times that of Earth's - equivalent to the pressure found 900 meters (3,000 feet) underwater on Earth.</p>
+            
+            <img src="https://imgs.search.brave.com/GuKz7Qx-YNCwpD98VKHtNu8CuUFwlgohkNk97q5vzlA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zMy11/cy13ZXN0LTIuYW1h/em9uYXdzLmNvbS9j/b3Vyc2VzLWltYWdl/cy93cC1jb250ZW50/L3VwbG9hZHMvc2l0/ZXMvMTA5NS8yMDE2/LzExLzAzMTU1NTMw/L09TQ19Bc3Ryb18x/MF8wM19BdG1vc3Bo/ZXJlLmpwZw" alt="Venus atmosphere layers">
+            
+            <p>The upper cloud layers of Venus move around the planet every four Earth days in what is called "super-rotation." These clouds reflect most sunlight, making Venus the brightest natural object in Earth's night sky after the Moon. Beneath the clouds, the surface is shrouded in perpetual gloom with visibility similar to a very overcast day on Earth.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Volcanic Landscape</h2>
+            <p>Venus has more volcanoes than any other planet in the solar system, with over 1,600 major volcanoes or volcanic features. While most are dormant, there is evidence that some may still be active. The planet's surface is relatively young, estimated to be 300-500 million years old, suggesting a global resurfacing event occurred.</p>
+            
+            <img src="https://imgs.search.brave.com/2anOzDTIg8PTpy14AVDkuKB43KbbYAoeiGiQiRT2_hc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaW5kaWFuZXhw/cmVzcy5jb20vMjAy/My8wMy9WZW51cy1W/b2xjYW5vLUZpbmFs/LmpwZz93PTY0MA" alt="Volcano on Venus">
+            
+            <p>Venus features two major highland "continents" (Ishtar Terra and Aphrodite Terra), mountain ranges, vast lava plains, and numerous volcanic features including shield volcanoes, pancake domes, and "coronae" - circular structures formed by upwelling magma. The highest mountain, Maxwell Montes, rises 11 km (7 mi) above the average surface elevation.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Venus vs. Earth Comparison</h2>
+            <table class="comparison-table">
+                <tr>
+                    <th>Feature</th>
+                    <th>Venus</th>
+                    <th>Earth</th>
+                </tr>
+                <tr>
+                    <td>Average Temperature</td>
+                    <td>465°C (869°F)</td>
+                    <td>15°C (59°F)</td>
+                </tr>
+                <tr>
+                    <td>Atmospheric Pressure</td>
+                    <td>92 bars</td>
+                    <td>1 bar</td>
+                </tr>
+                <tr>
+                    <td>Atmosphere Composition</td>
+                    <td>96.5% CO₂, 3.5% N₂</td>
+                    <td>78% N₂, 21% O₂</td>
+                </tr>
+                <tr>
+                    <td>Rotation Direction</td>
+                    <td>Retrograde (clockwise)</td>
+                    <td>Prograde (counter-clockwise)</td>
+                </tr>
+                <tr>
+                    <td>Rotation Period</td>
+                    <td>243 Earth days</td>
+                    <td>1 Earth day</td>
+                </tr>
+                <tr>
+                    <td>Magnetic Field</td>
+                    <td>Very weak</td>
+                    <td>Strong</td>
+                </tr>
+                <tr>
+                    <td>Surface Features</td>
+                    <td>Volcanic plains, shield volcanoes</td>
+                    <td>Oceans, continents, mountains</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="content-section">
+            <h2>Exploration of Venus</h2>
+            <p>Venus was the first planet to be visited by a spacecraft (Mariner 2 in 1962) and the first to be successfully landed on (Venera 7 in 1970). Over 40 spacecraft have explored Venus, including NASA's Magellan which mapped 98% of the surface with radar in the early 1990s.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/nHMOJfdWWilTwI4ePHj3kCBuX5dGyEfL039ThjmVcw8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dGhlc3BhY2Vjb2xs/ZWN0aXZlLmNvbS9t/ZWRpYS93eXNpd3ln/L2Jsb2ctaW1hZ2Vz/L3ZlbmVyYS04Lmpw/ZWc" alt="Venera probe">
+                    <div class="gallery-caption">Soviet Venera lander (1975)</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/V-PWU1KpF8l49NEWT4SB0KIjMdE7CNv6UddcNz_spaI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bmFzYS5nb3Yvd3At/Y29udGVudC91cGxv/YWRzLzIwMTkvMDUv/bWFnZWxsYW5fZGVw/bG95X2Zyb21fYXRs/YW50aXMuanBn" alt="Magellan radar map">
+                    <div class="gallery-caption">Magellan radar topography</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/CwVi-8mwF1Rpb99FfENVdGQdqrK02ADYkuLw-gt0E0A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9naXpt/b2RvLmNvbS9hcHAv/dXBsb2Fkcy8yMDI1/LzAzL25hc2FzLXNw/YWNleC1jcmV3LTkt/bWVtYmVycy1pbnNp/ZGUtaW50ZXJuYXRp/b25hbC1zcGFjZS1z/dGF0aW9uLmpwZw" alt="VERITAS mission">
+                    <div class="gallery-caption">Upcoming VERITAS mission</div>
+                </div>
+            </div>
+            
+            <p>Current missions include Japan's Akatsuki orbiter (since 2015) and upcoming missions like NASA's VERITAS and DAVINCI+, and ESA's EnVision, all scheduled for launch in the late 2020s to study Venus's atmosphere and surface in unprecedented detail.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Interesting Facts About Venus</h2>
+            <ul style="margin-left: 20px; margin-bottom: 15px;">
+                <li>Venus is the brightest planet in Earth's sky, often called the "Morning Star" or "Evening Star."</li>
+                <li>A Venusian day (243 Earth days) is longer than its year (225 Earth days).</li>
+                <li>If you could stand on Venus, the Sun would rise in the west and set in the east due to its retrograde rotation.</li>
+                <li>Venus has no moons or rings.</li>
+                <li>The surface temperature is hot enough to melt lead and zinc.</li>
+                <li>Venus may have had oceans in its early history that evaporated as the planet heated up.</li>
+                <li>Lightning has been detected in Venus's atmosphere, but it's unclear if it strikes the surface.</li>
+                <li>Some scientists speculate that microbial life might exist in Venus's upper cloud layers.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Solar System Explorer | All images courtesy of NASA and other space agencies</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #FFB74D;">Venus - A beautiful but deadly world that teaches us about climate extremes!</p>
+        </footer>
+    </div>
+</body>
+</html>

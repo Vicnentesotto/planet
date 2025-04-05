@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saturn - The Ringed Planet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.7);
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(179, 157, 219, 0.5);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #B39DDB;
+            text-shadow: 0 0 10px rgba(179, 157, 219, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #D1C4E9;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            background: rgba(179, 157, 219, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            background: rgba(179, 157, 219, 1);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .planet-hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .planet-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .planet-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .quick-facts {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(38, 50, 56, 0.6);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #B39DDB;
+        }
+
+        .quick-facts h2 {
+            color: #B39DDB;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(179, 157, 219, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .fact-item {
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        .fact-label {
+            font-weight: bold;
+            color: #D1C4E9;
+            min-width: 120px;
+        }
+
+        .fact-value {
+            flex: 1;
+        }
+
+        .content-section {
+            background: rgba(38, 50, 56, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #B39DDB;
+        }
+
+        .content-section h2 {
+            color: #B39DDB;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .content-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            font-size: 0.9rem;
+            color: #D1C4E9;
+        }
+
+        .moon-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .moon-table th, .moon-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(179, 157, 219, 0.3);
+        }
+
+        .moon-table th {
+            color: #B39DDB;
+            font-weight: bold;
+        }
+
+        .moon-table tr:hover {
+            background-color: rgba(179, 157, 219, 0.1);
+        }
+
+        .ring-diagram {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            border-top: 1px solid rgba(179, 157, 219, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .planet-hero {
+                flex-direction: column;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Saturn</h1>
+            <p class="subtitle">The Jewel of the Solar System</p>
+        </header>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="mercury.html" class="nav-btn">Mercury</a>
+            <a href="venus.html" class="nav-btn">Venus</a>
+            <a href="earth.html" class="nav-btn">Earth</a>
+            <a href="jupiter.html" class="nav-btn">Jupiter</a>
+            <a href="saturn.html" class="nav-btn">Saturn</a>
+            <a href="about.html" class="nav-btn">About</a>
+        </div>
+
+        <section class="planet-hero">
+            <div class="planet-image">
+                <img src="https://imgs.search.brave.com/P57oeIIx8WpztDXcdbZyL23xNaA4UJrtM3pKy9ht4m4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGFy/d2Fsay5zcGFjZS9n/YWxsZXJ5L2ltYWdl/cy9zYXR1cm4tcGxh/bmV0LWd1aWRlLzE5/MjB4MTA4MC5qcGc" alt="Saturn planet view">
+            </div>
+            <div class="quick-facts">
+                <h2>Quick Facts</h2>
+                <div class="fact-item">
+                    <div class="fact-label">Diameter:</div>
+                    <div class="fact-value">116,460 km (72,367 miles) - 9.5× Earth</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Mass:</div>
+                    <div class="fact-value">5.68 × 10²⁶ kg (95 Earth masses)</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Orbit Period:</div>
+                    <div class="fact-value">29.5 Earth years</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Rotation Period:</div>
+                    <div class="fact-value">10.7 hours (day length)</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Surface Temp:</div>
+                    <div class="fact-value">-178°C (-288°F) at cloud tops</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Atmosphere:</div>
+                    <div class="fact-value">96% hydrogen, 3% helium, 1% other</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Known Moons:</div>
+                    <div class="fact-value">146 (as of 2023)</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Ring System:</div>
+                    <div class="fact-value">Extends up to 282,000 km from planet</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>About Saturn</h2>
+            <p>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius about nine times that of Earth. Saturn is named after the Roman god of wealth and agriculture. The planet's most famous feature is its prominent ring system, which is composed mostly of ice particles with a smaller amount of rocky debris and dust.</p>
+            
+            <img src="https://imgs.search.brave.com/QaayaLM6RJimwi2I5CoTEDrlOnjVnw5p1GvtNTZWqCc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0L29i/QlIzcTNxdURGN3Rv/UEZTV1A5RTkuanBn" alt="Saturn's north polar hexagon">
+            
+            <p>Saturn's interior is most likely composed of a core of iron-nickel and rock (silicon and oxygen compounds). This core is surrounded by a deep layer of metallic hydrogen, an intermediate layer of liquid hydrogen and liquid helium, and finally a gaseous outer layer. The planet has a pale yellow hue due to ammonia crystals in its upper atmosphere.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>The Magnificent Rings</h2>
+            <p>Saturn's rings are the most extensive planetary ring system of any planet in the Solar System. They consist of countless small particles, ranging in size from micrometers to meters, that orbit Saturn. The ring particles are made almost entirely of water ice, with a trace component of rocky material.</p>
+            
+            <img src="https://imgs.search.brave.com/MffZgDnTUxS_6OMR3wkF08jCH75YgJKKxN3JYdpPYOE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iaWd0/aGluay5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjIvMDkv/c2F0dXJuc2Vhc29u/c19odWJibGVfMzAw/MC5qcGc" alt="Detailed view of Saturn's rings">
+            
+            <p>The rings are divided into several sections. From closest to farthest from Saturn, the main rings are labeled C, B, and A. The Cassini Division is a 4,800 km (3,000 mi) gap between rings A and B. There are also fainter rings discovered more recently. The rings are not solid but made of particles orbiting independently. The main rings are generally only about 10 meters (30 feet) thick.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Atmosphere and Weather</h2>
+            <p>Saturn's outer atmosphere is composed of about 96% hydrogen and 3% helium by volume. The planet's upper atmosphere exhibits a banded pattern similar to Jupiter's, but Saturn's bands are much fainter and wider near the equator. Saturn's winds are among the Solar System's fastest, reaching 1,800 km/h (1,100 mph).</p>
+            
+            <img src="https://imgs.search.brave.com/lipZ5wqDe_rlvlNUYmEXx84ZdW4DmPPNB5lQthpB7oU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0L1Vt/YWNwVnRLR3BhbjJ5/QmI2eVN6WGEuanBn" alt="Giant storm on Saturn">
+            
+            <p>Saturn has a unique hexagonal cloud pattern at its north pole that was first noted in Voyager images. This hexagon is a six-sided jet stream with sides about 13,800 km (8,600 mi) long (bigger than Earth's diameter). The south pole vortex is also unusual, being warmer than anywhere else on the planet and featuring a massive hurricane-like storm with a clearly defined eyewall.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Notable Moons of Saturn</h2>
+            <p>Saturn has 146 known moons, the most of any planet in our solar system. Titan, the largest, is bigger than the planet Mercury and is the only moon in the solar system with a substantial atmosphere. Enceladus is an icy moon that sprays water vapor from its south pole, suggesting a subsurface ocean that could potentially harbor life.</p>
+            
+            <table class="moon-table">
+                <tr>
+                    <th>Moon</th>
+                    <th>Diameter</th>
+                    <th>Interesting Feature</th>
+                </tr>
+                <tr>
+                    <td>Titan</td>
+                    <td>5,150 km</td>
+                    <td>Only moon with dense atmosphere, liquid lakes</td>
+                </tr>
+                <tr>
+                    <td>Rhea</td>
+                    <td>1,528 km</td>
+                    <td>May have a tenuous ring system</td>
+                </tr>
+                <tr>
+                    <td>Iapetus</td>
+                    <td>1,471 km</td>
+                    <td>Two-tone coloration (black and white)</td>
+                </tr>
+                <tr>
+                    <td>Dione</td>
+                    <td>1,123 km</td>
+                    <td>Possible subsurface ocean</td>
+                </tr>
+                <tr>
+                    <td>Enceladus</td>
+                    <td>504 km</td>
+                    <td>Geysers of water vapor from south pole</td>
+                </tr>
+            </table>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/aI_cxIKg_907HLijaQ5BV4O1HfTboFfNyytbcM8KyKQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cmV1dGVycy5jb20v/cmVzaXplci92Mi9H/SkVOUkhGVldGTEE3/Qk9CNlAySVY3QkNC/SS5qcGc_YXV0aD1k/ZDNmNTUxOWI1NGU4/MDFmNjYyN2I2YTky/NDRjMjIwYzBjMGE2/MmRmOTZkNzUxZmM2/OTc0NDk1MzA2YThl/OTZlJndpZHRoPTEw/ODAmcXVhbGl0eT04/MA" alt="Titan moon">
+                    <div class="gallery-caption">Titan's thick atmosphere</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/kDtulpZpHc_GQf4-hyl34c56yKwaU3U7CW6kn0tIecE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvODQ1/MTg4NTQvcGhvdG8v/c2F0dXJucy1tb29u/LWVuY2VsYWR1cy5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/dU1jWm02ZGdJRFU0/SXBZZnFjV3JUNmw2/ZVVNVF9aeEJsN0dD/NGlUN1o0dz0" alt="Enceladus moon">
+                    <div class="gallery-caption">Enceladus' water plumes</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/KhJpsNqwrc2vZiDscNZx5muYVfmp3Y6G_iAw9B9D_v8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9j/L2M5L0lhcGV0dXNf/YXNfc2Vlbl9ieV90/aGVfQ2Fzc2luaV9w/cm9iZV8tXzIwMDcx/MDA4LmpwZw" alt="Iapetus moon">
+                    <div class="gallery-caption">Iapetus' two-toned surface</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Exploration of Saturn</h2>
+            <p>Saturn has been explored by four spacecraft: Pioneer 11, Voyager 1, Voyager 2, and Cassini-Huygens. The Cassini orbiter was the most extensive, arriving in 2004 and studying Saturn and its moons until 2017 when it deliberately plunged into Saturn's atmosphere.</p>
+            
+            <img src="https://imgs.search.brave.com/855tsV1cNCsUma26vQ9J_GOuxXlDW8DDchUR-PS1AbI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kM2k2/Zmg4M2VsdjM1dC5j/bG91ZGZyb250Lm5l/dC9zdGF0aWMvMjAx/Ny8wOS9jYXNzaW5p/LWVudGVycy1hdG1v/c3BoZXJlLTEwMjR4/NDMyLmpwZw" alt="Cassini spacecraft">
+            
+            <p>The Cassini mission made numerous discoveries, including liquid methane seas on Titan, water-ice geysers on Enceladus, and detailed observations of Saturn's rings and storms. The Huygens probe that accompanied Cassini landed on Titan in 2005, providing our first direct observations of Titan's surface. Future missions like NASA's Dragonfly (scheduled for 2027 launch) will explore Titan's surface with a drone.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Interesting Facts About Saturn</h2>
+            <ul style="margin-left: 20px; margin-bottom: 15px;">
+                <li>Saturn is the least dense planet in the Solar System - it would float in water if you could find a bathtub big enough.</li>
+                <li>The rings are very young in astronomical terms - likely less than 100 million years old.</li>
+                <li>Saturn's moon Titan has lakes of liquid methane and ethane, complete with a weather cycle similar to Earth's water cycle.</li>
+                <li>Saturn emits more than twice as much heat as it receives from the Sun.</li>
+                <li>The rings are disappearing at a rate that suggests they'll be gone in about 300 million years.</li>
+                <li>Enceladus' geysers shoot water vapor at about 1,300 km/h (800 mph) to heights of hundreds of kilometers.</li>
+                <li>Saturn's magnetic field is about 578 times as powerful as Earth's.</li>
+                <li>The planet's rapid rotation causes it to bulge at the equator and flatten at the poles.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Solar System Explorer | All images courtesy of NASA</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #D1C4E9;">Saturn - The crown jewel of our solar system and a world of breathtaking beauty.</p>
+        </footer>
+    </div>
+</body>
+</html>d

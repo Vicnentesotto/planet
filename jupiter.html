@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupiter - The Giant Planet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.7);
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255, 193, 7, 0.5);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: #FFC107;
+            text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #FFD54F;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            background: rgba(255, 193, 7, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 193, 7, 1);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .planet-hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        .planet-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .planet-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .quick-facts {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(38, 50, 56, 0.6);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #FFC107;
+        }
+
+        .quick-facts h2 {
+            color: #FFC107;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 193, 7, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .fact-item {
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        .fact-label {
+            font-weight: bold;
+            color: #FFD54F;
+            min-width: 120px;
+        }
+
+        .fact-value {
+            flex: 1;
+        }
+
+        .content-section {
+            background: rgba(38, 50, 56, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #FFC107;
+        }
+
+        .content-section h2 {
+            color: #FFC107;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .content-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            font-size: 0.9rem;
+            color: #FFD54F;
+        }
+
+        .moon-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .moon-table th, .moon-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        .moon-table th {
+            color: #FFC107;
+            font-weight: bold;
+        }
+
+        .moon-table tr:hover {
+            background-color: rgba(255, 193, 7, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            border-top: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .planet-hero {
+                flex-direction: column;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-btn {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Jupiter</h1>
+            <p class="subtitle">The King of Planets</p>
+        </header>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="mercury.html" class="nav-btn">Mercury</a>
+            <a href="venus.html" class="nav-btn">Venus</a>
+            <a href="earth.html" class="nav-btn">Earth</a>
+            <a href="jupiter.html" class="nav-btn">Jupiter</a>
+            <a href="saturn.html" class="nav-btn">Saturn</a>
+            <a href="about.html" class="nav-btn">About</a>
+        </div>
+
+        <section class="planet-hero">
+            <div class="planet-image">
+                <img src="https://imgs.search.brave.com/6bI0ujcX9hnqBY77CpvOCil3j8X9nhdYIXL98309l0k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9l/L2UyL0p1cGl0ZXJf/T1BBTF8yMDI0LnBu/Zw" alt="Jupiter planet view">
+            </div>
+            <div class="quick-facts">
+                <h2>Quick Facts</h2>
+                <div class="fact-item">
+                    <div class="fact-label">Diameter:</div>
+                    <div class="fact-value">139,820 km (86,881 miles) - 11x Earth's diameter</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Mass:</div>
+                    <div class="fact-value">1.9 × 10²⁷ kg (318 Earth masses)</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Orbit Period:</div>
+                    <div class="fact-value">11.86 Earth years</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Rotation Period:</div>
+                    <div class="fact-value">9.93 hours (fastest rotating planet)</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Surface Temp:</div>
+                    <div class="fact-value">-145°C (-234°F) at cloud tops</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Atmosphere:</div>
+                    <div class="fact-value">90% hydrogen, 10% helium, traces of other gases</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Known Moons:</div>
+                    <div class="fact-value">95 (as of 2023)</div>
+                </div>
+                <div class="fact-item">
+                    <div class="fact-label">Great Red Spot:</div>
+                    <div class="fact-value">Giant storm lasting at least 400 years</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>About Jupiter</h2>
+            <p>Jupiter is the fifth planet from the Sun and the largest in the Solar System. It is a gas giant with a mass more than two and a half times that of all the other planets in the Solar System combined, but slightly less than one-thousandth the mass of the Sun. Jupiter is the third brightest natural object in the Earth's night sky after the Moon and Venus.</p>
+            
+            <img src="https://imgs.search.brave.com/B3Q6S8tWHXPLAHzRIQPluOWSUKRLZIt4Bc5UG6Rdh10/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTg1/ODYzOTM4L3Bob3Rv/L2p1cGl0ZXJzLWdy/ZWF0LXJlZC1zcG90/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1TRk5YLS1PZUhH/X2xHeWdwbUp3cWUz/SnE4a21QUlVQaEZ1/UFBmY3l5SG40PQ" alt="Jupiter's Great Red Spot">
+            
+            <p>Jupiter is primarily composed of hydrogen (90% by volume), followed by helium, which makes up a quarter of its mass and a tenth of its volume. The ongoing contraction of Jupiter's interior generates more heat than it receives from the Sun. The planet's iconic Great Red Spot is a giant storm larger than Earth that has raged for at least 400 years.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Atmosphere and Weather</h2>
+            <p>Jupiter's upper atmosphere is composed of about 90% hydrogen and 10% helium by volume. The atmosphere contains trace amounts of methane, water vapor, ammonia, and silicon-based compounds as well as carbon, ethane, hydrogen sulfide, neon, oxygen, phosphine, and sulfur.</p>
+            
+            <img src="https://imgs.search.brave.com/aOO7XRz7ZqugCDhy4zK3DeS_iQFpJgGCHBvCgE3uu6o/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy83/Lzc1L1BvcnRyYWl0/X29mX0p1cGl0ZXJf/ZnJvbV9DYXNzaW5p/LmpwZw" alt="Jupiter's cloud bands">
+            
+            <p>The colorful bands of Jupiter are arranged into dark belts and light zones created by strong east-west winds moving in opposite directions. These jet streams may reach speeds of 360 km/h (220 mph). The zones are regions of upwelling air, while the belts represent descending air. The white clouds in the zones are made of crystals of frozen ammonia, while darker clouds of other chemicals are found in the belts.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>The Great Red Spot</h2>
+            <p>Jupiter's Great Red Spot is a persistent high-pressure region in the atmosphere producing an anticyclonic storm that is the largest in the Solar System. It has been continuously observed since 1830 and possibly since 1665.</p>
+            
+            <img src="https://imgs.search.brave.com/-Kd2nXvbp5GXg8Ce44ElHhJiPOZuKvqTpnDejrOzffY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kM2k2/Zmg4M2VsdjM1dC5j/bG91ZGZyb250Lm5l/dC9uZXdzaG91ci9h/cHAvdXBsb2Fkcy8y/MDE3LzA3L0p1bm9f/Y3JvcF9KTkNFXzIw/MTcxOTJfMDdDMDAw/NjFfVjAxLW1hcHBy/b2plY3RlZDEtMi0x/LmpwZw" alt="Close-up of Great Red Spot">
+            
+            <p>Current measurements show the storm is about 16,350 km (10,160 mi) in diameter, large enough to swallow Earth whole. Winds at its outer edges can reach speeds of 432 km/h (268 mph). The spot appears to be shrinking and becoming more circular than oval, as documented by telescopic observations since 1930. Its reddish color may come from chemicals like ammonium hydrosulfide breaking apart in sunlight.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Jupiter's Ring System</h2>
+            <p>Jupiter has a faint planetary ring system composed of three main segments: an inner torus of particles known as the halo, a relatively bright main ring, and an outer gossamer ring. The rings appear to be made of dust rather than ice as with Saturn's rings.</p>
+            
+            <img src="https://imgs.search.brave.com/7ln4WAbUWlf2VZRX2g9b7fxVcWliu5MY6wM21lqwLqs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9vcmJp/dGFsdG9kYXkuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIz/LzA3L1doYXQtYXJl/LXRoZS00LXJpbmdz/LW9mLUp1cGl0ZXIu/anBn" alt="Jupiter's ring system">
+            
+            <p>The main ring is likely made of material ejected from the moons Adrastea and Metis. Material that normally would fall back to the moon is pulled into Jupiter because of its strong gravitational influence. The rings are continually replenished by dust from micrometeoroid impacts on the four small inner moons.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Major Moons of Jupiter</h2>
+            <p>Jupiter has 95 known moons, including the four large Galilean moons discovered by Galileo Galilei in 1610: Io, Europa, Ganymede, and Callisto. Ganymede is the largest moon in the Solar System, even bigger than the planet Mercury.</p>
+            
+            <table class="moon-table">
+                <tr>
+                    <th>Moon</th>
+                    <th>Diameter</th>
+                    <th>Interesting Feature</th>
+                </tr>
+                <tr>
+                    <td>Io</td>
+                    <td>3,643 km</td>
+                    <td>Most volcanically active body in Solar System</td>
+                </tr>
+                <tr>
+                    <td>Europa</td>
+                    <td>3,122 km</td>
+                    <td>Subsurface ocean with potential for life</td>
+                </tr>
+                <tr>
+                    <td>Ganymede</td>
+                    <td>5,268 km</td>
+                    <td>Only moon with its own magnetic field</td>
+                </tr>
+                <tr>
+                    <td>Callisto</td>
+                    <td>4,821 km</td>
+                    <td>Most heavily cratered object in Solar System</td>
+                </tr>
+                <tr>
+                    <td>Amalthea</td>
+                    <td>167 km</td>
+                    <td>Reddest object in Solar System</td>
+                </tr>
+            </table>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/HxZtghevxXG18-SQOM3cJwG3fQ49SILLi5EjI6wd6IU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/YnJpdGFubmljYS5j/b20vODAvMTg2NDgw/LTEzOC0wMzIxNTI4/Qi9vdmVydmlldy1J/by12b2xjYW5vZXMt/SnVwaXRlci5qcGc_/dz04MDAmaD00NTAm/Yz1jcm9w" alt="Io moon">
+                    <div class="gallery-caption">Volcanic moon Io</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/uDhpvgUzraDXGweReMpH7yCsZYoSnTNGBkv0f5gQn0o/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jbGRucnkucy1u/YmNuZXdzLmNvbS9p/bWFnZS91cGxvYWQv/dF9maXQtNzYwdyxm/X2F1dG8scV9hdXRv/OmJlc3Qvcm9ja2Nt/cy8yMDI0LTA5LzI0/MDkxOC1ldXJvcGEt/YWwtMTQ1NC00MTdm/NzYuanBn" alt="Europa moon">
+                    <div class="gallery-caption">Ice-covered Europa</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://imgs.search.brave.com/jjY7BWN_e6TcgoxFTyp42heg44MCttYRW7InIrfRGG4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZWFydGguY29tL2Fz/c2V0cy9fbmV4dC9p/bWFnZS8_dXJsPWh0/dHBzOi8vY2ZmMi5l/YXJ0aC5jb20vdXBs/b2Fkcy8yMDIzLzEw/LzMxMDkxMTQ2L2dh/bnltZWRlX2p1cGl0/ZXItbW9vbl9KdW5v/LXNwYWNlY3JhZnRf/TkFTQV8xbWVkaXVt/LTE0MDB4ODUwLmpw/ZyZ3PTEyMDAmcT03/NQ" alt="Ganymede moon">
+                    <div class="gallery-caption">Ganymede's complex surface</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Exploration of Jupiter</h2>
+            <p>Since 1973, Jupiter has been visited by nine robotic spacecraft: seven flybys and two dedicated orbiters, with another currently en route. The Pioneer and Voyager flybys in the 1970s provided the first close-up images of Jupiter's atmosphere and moons.</p>
+            
+            <img src="https://imgs.search.brave.com/tRgVTImP5EJoPA3Zo0j9u9M5sID2EAMx1LE_ryC0vkE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy81/LzViL0pVTk9fLV9Q/SUExMzc0Ni5qcGc" alt="Juno spacecraft">
+            
+            <p>NASA's Galileo spacecraft was the first to orbit Jupiter from 1995-2003, dropping a probe into Jupiter's atmosphere and conducting close flybys of the Galilean moons. The Juno spacecraft has been orbiting Jupiter since 2016, studying its composition, gravity field, magnetic field, and polar magnetosphere. ESA's Jupiter Icy Moons Explorer (JUICE) launched in 2023 will study Ganymede, Callisto, and Europa.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Interesting Facts About Jupiter</h2>
+            <ul style="margin-left: 20px; margin-bottom: 15px;">
+                <li>Jupiter's magnetic field is 14 times stronger than Earth's - the strongest in the Solar System.</li>
+                <li>If Jupiter had been about 80 times more massive, it would have become a star instead of a planet.</li>
+                <li>Jupiter's moon Ganymede is larger than the planet Mercury.</li>
+                <li>Jupiter has the shortest day of all planets, rotating once every 9.93 hours.</li>
+                <li>The planet's rapid rotation causes it to bulge at the equator and flatten at the poles.</li>
+                <li>Jupiter emits more heat than it receives from the Sun due to ongoing gravitational contraction.</li>
+                <li>Jupiter's moon Europa may have a subsurface ocean containing twice as much water as Earth's oceans.</li>
+                <li>Jupiter's immense gravity acts as a "cosmic vacuum cleaner," attracting comets and asteroids that might otherwise threaten Earth.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Solar System Explorer | All images courtesy of NASA</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #FFD54F;">Jupiter - The massive guardian of the inner solar system and a world of endless wonder.</p>
+        </footer>
+    </div>
+</body>
+</html>
